@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VirialMC</title>
+</head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+<body>
+<!-- this one mofo div literally centers everything or something -->
+   <div style="text-align:center"> <h1>VirialMC</h1>
+    <h1 id="bmargin150">MC.VIRIAL.XYZ</h1>
+    <h2 id=h2mb50>Live Minecraft Stats:</h2>
+    <div id="livestatus">Connecting to Minecraft server API...</div>
+</div>
+<script>
+   const MCapiURL = 'http://104.193.179.145:17135/server/info';
+async function getMC1() {
+    const response = await fetch(MCapiURL);
+    const data = await response.json();
+    document.getElementById('livestatus').textContent = data.tps;
+    console.log(data.tps);
+}
+    getMC1();
+   setInterval(getMC1, 2500)
+</script>
+    <style>
+    body {
+     background-color: #101010;
+    }
+        h1 {
+            font-family: Ubuntu, Verdana;
+            color: #ffffff;
+        }
+        #bmargin150 {
+            font-family: Ubuntu, Verdana;
+            color: #ffffff;
+            margin-bottom: 150px;
+        }
+        h2 {
+            font-family: Ubuntu, Verdana;
+            color: #00ff27;
+            }
+        #h2mb50 {
+            font-family: Ubuntu, Verdana;
+            color: #00ff27;
+            margin-bottom: 50px;
+        }
+        #h2mb502 {
+            font-family: Ubuntu, Verdana;
+            color: #00ff27;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+         a {
+            color: #00ff27;
+            text-decoration: none;
+    }
+      #livestatus {
+      color: #ffffff;
+      font-family: Ubuntu, Verdana;
+      text-decoration: none;
+      font-size: x-large;
+    }
+    </style>
+    
+</body>
+</html>
